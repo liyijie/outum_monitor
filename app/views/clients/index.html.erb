@@ -1,38 +1,31 @@
 <%- model_class = Client -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h1>Outum V8 客户端外场使用统计</h1>
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:label) %></th>
-      <th><%= model_class.human_attribute_name(:last_time) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th>序列号</th>
+      <th>在线天数</th>
+      <th>最后上线时间</th>
+      <th>今日里程（km）</th>
+      <th>今日在线时长（分）</th>
+      <th>总里程（km）</th>
+      <th>总在线时长（分）</th>
     </tr>
   </thead>
   <tbody>
     <% @clients.each do |client| %>
       <tr>
-        <td><%= link_to client.id, client_path(client) %></td>
-        <td><%= client.label %></td>
-        <td><%= client.last_time %></td>
-        <td><%=l client.created_at %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_client_path(client), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      client_path(client),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
+        <td><%= link_to client.label, client_path(client), :class => 'btn' %></td>
+        <td><%= client.online_days %></td>
+        <td><%= time_ago_in_words client.last_time %> ago</td>
+        <td><%= (client.distance_today / 1000).round(2) %></td>
+        <td><%= (client.duration_today / 60).round(2) %></td>
+        <td><%= (client.distance_all / 1000).round(2) %></td>
+        <td><%= (client.duration_all / 60).round(2) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_client_path,
-            :class => 'btn btn-primary' %>

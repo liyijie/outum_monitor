@@ -1,8 +1,15 @@
 class RecordsController < ApplicationController
+
+  before_filter :get_client
+
+  def get_client
+    @client = Client.find(params[:client_id])
+  end
+
   # GET /records
   # GET /records.json
   def index
-    @records = Record.all
+    @records = @client.records
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +20,7 @@ class RecordsController < ApplicationController
   # GET /records/1
   # GET /records/1.json
   def show
-    @record = Record.find(params[:id])
+    @record = @client.records.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

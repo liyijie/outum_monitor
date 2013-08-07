@@ -1,8 +1,7 @@
 OutumMonitor::Application.routes.draw do
-  resources :clients
-
-
-  resources :records
+  resources :clients do
+    resources :records
+  end
 
 
   # The priority is based upon order of creation:
