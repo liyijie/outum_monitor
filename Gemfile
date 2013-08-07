@@ -8,6 +8,11 @@ gem 'rails', '3.2.13'
 
 gem 'sqlite3'
 
+# http client
+gem 'httparty', '~> 0.11.0'
+
+# json
+gem 'multi_json', '~> 1.7.2'
 
 # Gems used only for assets and not required
 # in production environments by default.

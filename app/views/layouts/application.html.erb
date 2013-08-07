@@ -5,8 +5,10 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= csrf_meta_tags %>
   <%= javascript_include_tag "application" %>
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.5&ak=EBe86b6e3510578ce64dc94c89b7739c"></script>
 </head>
 <body>
+
   <div class="navbar navbar-fixed-top navbar-inverse">
     
     <div class="navbar-inner">
@@ -25,11 +27,7 @@
     </div>
   </div>
 
-  <div class="container">
-    <div class="row">
-      <%= yield %>
-    </div>
-  </div> <!-- /container -->
-
+  <%= yield %>
+  
 </body>
 </html>

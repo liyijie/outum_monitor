@@ -1,5 +1,5 @@
 class Record < ActiveRecord::Base
-  attr_accessible :client_id, :date, :distance, :imei, :last_time, :lat, :lon, :ue, :duration
+  attr_accessible :client_id, :date, :distance, :imei, :last_time, :lat, :lon, :ue, :duration, :city
 
   belongs_to :client
 
@@ -22,12 +22,20 @@ class Record < ActiveRecord::Base
       s = (s * 10000).round / 10000
 
       delta_time = self.last_time ? (time - self.last_time) : 0
-      puts "delta_time is:#{delta_time}"
-      puts "s is:#{s}"
 
       if delta_time > 0 && delta_time < 60 && (s / delta_time < 1000)
         self.distance += s
         self.duration += delta_time
+      end
+      
+      if self.city.to_s.empty?
+        url = "http://api.map.baidu.com/geocoder?location=#{lat},#{lon}&output=json&key=8cb976834235d8cbcde2dce4835ae191"
+        city_info = HTTParty.get(url)
+        if city_info["status"] == "OK"
+          city = city_info["result"]["addressComponent"]["city"]
+          self.city = city unless city.to_s.empty?
+          puts "city is:#{self.city}"
+        end
       end
       self.lat = lat
       self.lon = lon

@@ -11,6 +11,10 @@ class Client < ActiveRecord::Base
     self.records.count
   end
 
+  def recent_city
+    self.recent_record.city if self.recent_record
+  end
+
   def record_today
     self.records.find_by_date(Time.zone.now.to_date)
   end

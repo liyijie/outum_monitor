@@ -1,6 +1,6 @@
 <%- model_class = Client -%>
-<div class="page-header form-actions">
-  <h1>终端详细信息 <%= link_to t('.back', :default => t("helpers.links.back")),clients_path, :class => 'btn'  %></h1>
+<div class="page-header">
+  <h2>终端详细信息</h2>
 </div>
 <dl class="dl-horizontal">
   <dt><strong>序列号</strong></dt>
@@ -8,7 +8,9 @@
   <dt><strong>在线天数</strong></dt>
   <dd><%= @client.online_days %></dd>
   <dt><strong>最后上线时间</strong></dt>
-  <dd><%= time_ago_in_words @client.last_time %></dd>
+  <dd><%= @client.last_time %></dd>
+  <dt><strong>所在城市</strong></dt>
+  <dd><%= @client.recent_city.to_s %></dd>
   <dt><strong>今日里程（km）</strong></dt>
   <dd><%= (@client.distance_today / 1000).round(2) %></dd>
   <dt><strong>今日在线时长（分）</strong></dt>
@@ -23,6 +25,7 @@
   <table class="table table-striped">
     <thead>
       <tr>
+        <th>所在城市</th>
         <th>日期</th>
         <th>终端类型</th>
         <th>终端IMEI</th>
@@ -35,6 +38,7 @@
 
       <% @client.records.each do |record| %>
         <tr>
+          <td><%= record.city %></td>
           <td><%= record.date %></td>
           <td><%= record.ue %></td>
           <td><%= record.imei %></td>

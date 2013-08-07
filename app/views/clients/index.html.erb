@@ -1,6 +1,6 @@
-<%- model_class = Client -%>
+
 <div class="page-header">
-  <h1>Outum V8 客户端外场使用统计</h1>
+  <h2>Outum V8 客户端外场使用统计</h2>
 </div>
 <table class="table table-striped">
   <thead>
@@ -8,6 +8,7 @@
       <th>序列号</th>
       <th>在线天数</th>
       <th>最后上线时间</th>
+      <th>所在城市</th>
       <th>今日里程（km）</th>
       <th>今日在线时长（分）</th>
       <th>总里程（km）</th>
@@ -20,6 +21,7 @@
         <td><%= link_to client.label, client_path(client), :class => 'btn' %></td>
         <td><%= client.online_days %></td>
         <td><%= time_ago_in_words client.last_time %> ago</td>
+        <td><%= client.recent_city.to_s %></td>
         <td><%= (client.distance_today / 1000).round(2) %></td>
         <td><%= (client.duration_today / 60).round(2) %></td>
         <td><%= (client.distance_all / 1000).round(2) %></td>
@@ -28,4 +30,7 @@
     <% end %>
   </tbody>
 </table>
+
+<div id="allmap"></div>
+
 
