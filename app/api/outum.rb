@@ -16,7 +16,6 @@ module Outum
       end
       post ':client_id' do
         time = Time.zone.now
-        date = time.to_date
         # 查找是否有对应client的信息，如果没有则创建一个
         client = Client.find_by_label params[:client_id]
         if client.nil?
@@ -35,24 +34,13 @@ module Outum
         lat = params[:lat]
         lon = params[:lon]
         
-
         # 1. 对于同一天的数据需要更新
         # 2. 更新的时，需要根据之前的结果更新在线时长和里程
         # 3. 如果不存在之前一天的数据，则新建一条数据
-        record = client.records.find_by_date(date)
-        if record.nil?
-          record = client.records.new
-          record.date = date
-          record.distance = 0
-        else
-          # distance = 
-        end
-
+        record = client.records.find_by_date(time.to_date) || client.records.new
         record.ue = ue if ue
         record.imei = imei if imei
-        record.lat = lat.to_f if lat && lon
-        record.lon = lon.to_f if lat && lon
-        record.last_time = time
+        record.update_info lat, lon, time
 
         record.save
       end
