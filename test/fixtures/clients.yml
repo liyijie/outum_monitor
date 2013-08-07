@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  label: MyString
+  last_time: 2013-08-07 11:27:02
+
+two:
+  label: MyString
+  last_time: 2013-08-07 11:27:02
