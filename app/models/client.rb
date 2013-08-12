@@ -37,4 +37,21 @@ class Client < ActiveRecord::Base
     duration = today_record ? today_record.duration : 0.0
   end
 
+  def lat
+    lat = recent_record ? recent_record.lat : nil
+  end
+
+  def lon
+    lon = recent_record ? recent_record.lon : nil
+  end
+
+  def as_json(options)
+    json_data = {}
+    json_data[:label] = label
+    json_data[:last_time] = last_time
+    json_data[:lat] = lat if lat
+    json_data[:lon] = lon if lon
+    json_data
+  end
+
 end

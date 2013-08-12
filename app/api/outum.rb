@@ -40,9 +40,14 @@ module Outum
         record = client.records.find_by_date(time.to_date) || client.records.new
         record.ue = ue if ue
         record.imei = imei if imei
-        record.update_info lat, lon, time
+        begin
+          record.update_info lat, lon, time  
+        ensure
+          record.save
+        end
+        
 
-        record.save
+        
       end
     end
 

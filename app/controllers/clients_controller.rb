@@ -3,6 +3,8 @@ class ClientsController < ApplicationController
   # GET /clients.json
   def index
     @clients = Client.order('last_time desc')
+    @controller = controller_name
+    @action = action_name
 
     respond_to do |format|
       format.html # index.html.erb

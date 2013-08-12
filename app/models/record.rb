@@ -34,7 +34,6 @@ class Record < ActiveRecord::Base
         if city_info["status"] == "OK"
           city = city_info["result"]["addressComponent"]["city"]
           self.city = city unless city.to_s.empty?
-          puts "city is:#{self.city}"
         end
       end
       self.lat = lat

@@ -2,37 +2,52 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-# // 百度地图API功能
-baidumap_init = ->
-  map = new BMap.Map("allmap")
-  point = new BMap.Point(116.404, 39.915)
-  map.centerAndZoom(point, 15)
-  map.addControl(new BMap.NavigationControl())
+$ ->
+  baidu_map = new BMap.Map("allmap")
+  point = new BMap.Point(119.1586, 26.08087)
+  baidu_map.centerAndZoom(point, 8)
+  baidu_map.addControl(new BMap.NavigationControl())
 
-  # // 编写自定义函数,创建标注
-  addMarker = (point) ->
-    marker = new BMap.Marker(point)
-    map.addOverlay(marker)
+  refresh_map = ->
+    $.ajax
+      type: 'get'
+      dataType: 'json'
+      url: '/clients'
+      
+      success: (clients)->
+        baidu_map.clearOverlays()
+        for client in clients
+          point = new BMap.Point(parseFloat(client.lon), parseFloat(client.lat))
+          marker = new BMap.Marker(point)
+          baidu_map.addOverlay(marker)
 
-  # // 随机向地图添加25个标注
-  bounds = map.getBounds()
-  sw = bounds.getSouthWest()
-  ne = bounds.getNorthEast()
-  lngSpan = Math.abs(sw.lng - ne.lng)
-  latSpan = Math.abs(ne.lat - sw.lat)
-  point = new BMap.Point(sw.lng + lngSpan * (Math.random() * 0.7), ne.lat - latSpan * (Math.random() * 0.7))
-  addMarker(point)
-  point = new BMap.Point(sw.lng + lngSpan * (Math.random() * 0.7), ne.lat - latSpan * (Math.random() * 0.7))
-  addMarker(point)
-  point = new BMap.Point(sw.lng + lngSpan * (Math.random() * 0.7), ne.lat - latSpan * (Math.random() * 0.7))
-  addMarker(point)
-  point = new BMap.Point(sw.lng + lngSpan * (Math.random() * 0.7), ne.lat - latSpan * (Math.random() * 0.7))
-  addMarker(point)
-  point = new BMap.Point(sw.lng + lngSpan * (Math.random() * 0.7), ne.lat - latSpan * (Math.random() * 0.7))
-  addMarker(point)
-  point = new BMap.Point(sw.lng + lngSpan * (Math.random() * 0.7), ne.lat - latSpan * (Math.random() * 0.7))
-  addMarker(point)
+  refresh_map()
+  setInterval(refresh_map, 10000)
+  
 
-$(document).ready(baidumap_init)
+$ ->
+  $('#clients').dataTable
+    sPaginationType: "full_numbers"
+    bJQueryUI: true
+    # "sScrollY": "600px"
+    # iDisplayLength: 15
+    aLengthMenu: [[10, 20, 50, 100, -1], ["10", "20", "50", "100", "全部"]] 
+
+    oLanguage:  
+      "sLengthMenu": "每页显示 _MENU_ 条记录"
+      "sZeroRecords": "对不起，查询不到任何相关数据"
+      "sInfo": "当前显示 _START_ 到 _END_ 条，共 _TOTAL_ 条记录"
+      "sInfoEmtpy": "找不到相关数据"
+      "sInfoFiltered": "数据表中共为 _MAX_ 条记录)"
+      "sProcessing": "正在加载中..."
+      "sSearch": "搜索"
+      "sUrl": ""  #可以保存的配置文件路径
+      "oPaginate":
+        "sFirst":    "第一页"
+        "sPrevious": " 上一页 "
+        "sNext":     " 下一页 "
+        "sLast":     " 最后一页 "
+
+
 
 
