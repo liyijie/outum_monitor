@@ -29,11 +29,15 @@ class Record < ActiveRecord::Base
       end
       
       if self.city.to_s.empty?
-        url = "http://api.map.baidu.com/geocoder?location=#{lat},#{lon}&output=json&key=8cb976834235d8cbcde2dce4835ae191"
-        city_info = HTTParty.get(url)
-        if city_info["status"] == "OK"
-          city = city_info["result"]["addressComponent"]["city"]
-          self.city = city unless city.to_s.empty?
+        begin
+          url = "http://api.map.baidu.com/geocoder?location=#{lat},#{lon}&output=json&key=8cb976834235d8cbcde2dce4835ae191"
+          city_info = HTTParty.get(url)
+          if city_info["status"] == "OK"
+            city = city_info["result"]["addressComponent"]["city"]
+            self.city = city unless city.to_s.empty?
+          end
+        rescue Exception => e
+          
         end
       end
       self.lat = lat

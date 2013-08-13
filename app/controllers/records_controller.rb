@@ -9,6 +9,8 @@ class RecordsController < ApplicationController
   # GET /records
   # GET /records.json
   def index
+    @controller = controller_name
+    @action = action_name
     @records = @client.records
 
     respond_to do |format|

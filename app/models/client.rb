@@ -3,6 +3,15 @@ class Client < ActiveRecord::Base
 
   has_many :records, dependent: :destroy
 
+  def self.onlines
+    all_clients = Client.order('last_time desc')
+    clients = []
+    all_clients.each do |client|
+      clients << client if client.record_today
+    end
+    clients
+  end
+
   def recent_record
     records = self.records.last
   end
@@ -49,6 +58,7 @@ class Client < ActiveRecord::Base
     json_data = {}
     json_data[:label] = label
     json_data[:last_time] = last_time
+    json_data[:distance] = distance_today
     json_data[:lat] = lat if lat
     json_data[:lon] = lon if lon
     json_data

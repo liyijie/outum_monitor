@@ -1,4 +1,8 @@
 OutumMonitor::Application.routes.draw do
+  get "monitor/all"
+
+  get "monitor/online"
+
   resources :clients do
     resources :records
   end

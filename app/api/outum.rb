@@ -15,6 +15,7 @@ module Outum
         requires :client_id, type: String, desc: "client id"
       end
       post ':client_id' do
+        puts "client id:#{params[:client_id]}"
         time = Time.zone.now
         # 查找是否有对应client的信息，如果没有则创建一个
         client = Client.find_by_label params[:client_id]

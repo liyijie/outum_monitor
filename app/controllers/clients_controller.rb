@@ -2,9 +2,9 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.json
   def index
-    @clients = Client.order('last_time desc')
     @controller = controller_name
     @action = action_name
+    @clients = Client.order('last_time desc')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +15,8 @@ class ClientsController < ApplicationController
   # GET /clients/1
   # GET /clients/1.json
   def show
+    @controller = controller_name
+    @action = action_name
     @client = Client.find(params[:id])
 
     respond_to do |format|

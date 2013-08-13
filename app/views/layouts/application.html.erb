@@ -6,6 +6,8 @@
   <%= csrf_meta_tags %>
   <%= javascript_include_tag("application", @controller) if @controller %>
   <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.5&ak=EBe86b6e3510578ce64dc94c89b7739c"></script>
+  <script type="text/javascript" src="http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js"></script>
+  <%= javascript_include_tag("application", "MarkerClusterer") %>
 </head>
 <body>
 
@@ -20,14 +22,20 @@
         </a>
         <%= link_to "主页", root_path, class: "brand" %>
         <ul class="nav">
-          <li><%= link_to "统计", clients_path %></li>
-          <li><%= link_to "监控", clients_path %></li>
+          <li><%= link_to "客户端统计", clients_path %></li>
+          <li><%= link_to "地理化显示", "/monitor/all" %></li>
+          <li><%= link_to "在线监控", "/monitor/online" %></li>
         </ul>
       </div>
     </div>
   </div>
 
   <%= yield %>
-  
+
+  <footer class="wrap footer">
+    <div class="container">
+      <p class="copyright">© COPYRIGHT SHANGHAI DATANG MOBILE COMMUNICATIONS EQUIPMENT CO.,LTD. 2013</p>
+    </div>
+  </footer>
 </body>
 </html>
