@@ -2,9 +2,10 @@ class Client < ActiveRecord::Base
   attr_accessible :label, :last_time
 
   has_many :records, dependent: :destroy
+  default_scope order: 'last_time DESC'
 
   def self.onlines
-    all_clients = Client.order('last_time desc')
+    all_clients = Client.all
     clients = []
     all_clients.each do |client|
       clients << client if client.record_today

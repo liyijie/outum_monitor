@@ -1,6 +1,7 @@
 class Record < ActiveRecord::Base
   attr_accessible :client_id, :date, :distance, :imei, :last_time, :lat, :lon, :ue, :duration, :city
 
+  default_scope order: 'last_time DESC'
   belongs_to :client
 
   def update_info lat, lon, time

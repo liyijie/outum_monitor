@@ -4,7 +4,7 @@ class ClientsController < ApplicationController
   def index
     @controller = controller_name
     @action = action_name
-    @clients = Client.order('last_time desc')
+    @clients = Client.all
 
     respond_to do |format|
       format.html # index.html.erb
