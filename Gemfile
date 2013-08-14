@@ -26,10 +26,16 @@ group :assets do
   gem 'bootstrap-sass', '~> 2.3.2.1'
   
   gem 'uglifier', '>= 1.0.3'
-  gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+  gem 'jquery-datatables-rails'
   gem 'jquery-ui-rails'
 end
 
+# Attachment
+gem 'carrierwave'
+gem 'rmagick'
+gem 'mime-types'
+
+# API
 gem 'grape'
 
 gem 'jquery-rails'
