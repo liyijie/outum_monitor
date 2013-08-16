@@ -4,6 +4,7 @@
   <title>OutumMonitor</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= csrf_meta_tags %>
+  <%= yield(:head) %>
 </head>
 <body>
 
@@ -35,8 +36,8 @@
   </footer>
 
   <%= javascript_include_tag("application", @controller) if @controller %>
-  <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.5&ak=EBe86b6e3510578ce64dc94c89b7739c"></script>
-  <script type="text/javascript" src="http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js"></script>
+  <!-- <%= javascript_include_tag "application" %> -->
+
   <%= javascript_include_tag("application", "MarkerClusterer") %>
 
 </body>

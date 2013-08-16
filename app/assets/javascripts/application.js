@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.jplayer.min
 //= require dataTables/jquery.dataTables
 //= require bootstrap

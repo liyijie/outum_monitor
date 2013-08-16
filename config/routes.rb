@@ -1,4 +1,22 @@
 OutumMonitor::Application.routes.draw do
+  get "home/index"
+
+  resources :videos do
+    member do
+      match 'up'
+      match 'down'
+    end
+  end
+
+
+  resources :photos do
+    member do
+      match 'up'
+      match 'down'
+    end
+  end
+
+
   get "monitor/all"
 
   get "monitor/online"
@@ -59,7 +77,7 @@ OutumMonitor::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'clients#index'
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

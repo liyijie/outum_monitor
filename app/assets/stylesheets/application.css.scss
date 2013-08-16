@@ -11,13 +11,16 @@
  *= require_self
  *= require jquery.ui.core
  *= require jquery.ui.theme
+ *= require jplayer.blue.monday
  *= require dataTables/src/demo_table_jui
  *= require_tree .
  */
  @import "bootstrap";
  @import "bootstrap-responsive";
  
- body { padding-top: 50px; }
+body {
+   padding-top: 50px;
+}
 
  .footer {
    color: #666;
@@ -40,4 +43,11 @@
    font-size: 13px;
    text-transform: uppercase;
    color: #666;
+ }
+
+ .jp-video-episode {
+   width: 960px;
+   margin-top: 40px;
+   margin-right: 35px;
+   display: none;
  }

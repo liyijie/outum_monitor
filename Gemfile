@@ -38,6 +38,9 @@ gem 'mime-types'
 # API
 gem 'grape'
 
+# Sorter
+gem 'acts_as_list'
+
 gem 'jquery-rails'
 
 # auto delpoy

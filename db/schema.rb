@@ -11,13 +11,33 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130807131401) do
+ActiveRecord::Schema.define(:version => 20130815021208) do
+
+  create_table "attachments", :force => true do |t|
+    t.string   "media"
+    t.string   "content_type"
+    t.string   "file_name"
+    t.integer  "file_size"
+    t.integer  "attachmentable_id"
+    t.string   "attachmentable_type"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "file_type"
+  end
 
   create_table "clients", :force => true do |t|
     t.string   "label"
     t.datetime "last_time"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "photos", :force => true do |t|
+    t.string   "title"
+    t.string   "note"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "position"
   end
 
   create_table "records", :force => true do |t|
@@ -33,6 +53,14 @@ ActiveRecord::Schema.define(:version => 20130807131401) do
     t.datetime "updated_at", :null => false
     t.float    "duration"
     t.string   "city"
+  end
+
+  create_table "videos", :force => true do |t|
+    t.string   "note"
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "position"
   end
 
 end
