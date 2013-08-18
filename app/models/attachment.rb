@@ -1,6 +1,8 @@
 class Attachment < ActiveRecord::Base
   attr_accessible :attachmentable_id, :attachmentable_type, :content_type, :file_name, :file_size, :media, :file_type
   attr_accessible :attachmentable
+
+  CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/  
   
   mount_uploader :media, MediaUploader
 

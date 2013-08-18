@@ -8,8 +8,13 @@
       <div class="container">
         <div class="carousel-caption">
           <h1><%= photo.title %></h1>
-          <p class="lead"><%= photo.note %></p>
-          <a class="btn btn-large btn-primary" href="#">下载软件版本</a>
+          <p class="lead"><%= raw photo.note %></p>
+          <%= link_to content_tag(:li, "", :class=>'icon-download') + " 立即下载", download_product_path(@product), class: "btn btn-large btn-primary" %>
+          <p>运行环境：Windows XP或更高版本(32位)</p>
+          <% if @product %>
+            <p>版本：<%= @product.release_version %></p>
+            <p>发布日期：<%= @product.release_date %></p>
+          <% end %>
         </div>
       </div>
     </div>
@@ -21,17 +26,20 @@
 
 <div class="container video">
 
-  <!-- Three columns of text below the carousel -->
+  <!-- Three columns of video below the carousel -->
   <% (0..@row_count-1).each do |row_index| %>
   <div class="row-fluid">
     <% (0..2).each do |col_index| %>
       <% video = @videos[row_index * 3 + col_index] %>
       <% next if video.nil? %>
       <div class="span4">
-        <%= link_to(image_tag(video.photo_attachment.media.preview), video_path(video)) if video.photo_attachment %>
-        <h2 class="muted"><%= video.title %></h2>
-        <p><%= "#{video.note}" %></p>
-        <%= link_to("视频详情", video_path(video), class: "btn btn-primary") %>
+        <%= link_to(image_tag(video.photo_attachment.media.preview), video_path(video), target: "_blank") if video.photo_attachment %>
+        <h4 class="muted"><%= truncate video.title, length: 20 %></h4>
+        <p><%= raw truncate(video.note, length: 80) %></p>
+        <%= link_to(
+            " 播放视频 ▶", 
+              video_path(video, autoplay: true), 
+              class: "btn btn-primary", target: "_blank") %>
       </div>
     <% end %>
   </div>
@@ -48,7 +56,7 @@
   <hr class="featurette-divider">
 
   <div class="featurette">
-    <img class="featurette-image pull-left" src="../assets/img/examples/browser-icon-firefox.png">
+    <img class="featurette-image pull-left" src="">
     <h2 class="featurette-heading">Oh yeah, it's that good. <span class="muted">See for yourself.</span></h2>
     <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
   </div>
@@ -56,7 +64,7 @@
   <hr class="featurette-divider">
 
   <div class="featurette">
-    <img class="featurette-image pull-right" src="../assets/img/examples/browser-icon-safari.png">
+    <img class="featurette-image pull-right" src="">
     <h2 class="featurette-heading">And lastly, this one. <span class="muted">Checkmate.</span></h2>
     <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
   </div>

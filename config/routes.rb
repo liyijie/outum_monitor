@@ -1,4 +1,15 @@
 OutumMonitor::Application.routes.draw do
+  resources :products do
+    member do
+      match 'download'
+      match 'up'
+      match 'down'
+    end
+  end
+
+
+  devise_for :users
+
   get "home/index"
 
   resources :videos do

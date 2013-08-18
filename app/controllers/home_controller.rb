@@ -3,6 +3,7 @@ class HomeController < ApplicationController
     @controller = controller_name
     @action = action_name
     @videos = Video.all
+    @product = Product.first
     @row_count = @videos.size / 3 + (@videos.size % 3 > 0 ? 1 : 0)
   end
 end

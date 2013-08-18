@@ -1,0 +1,32 @@
+<%= form_for @product, :html => { :class => 'form-horizontal', :multipart => true } do |f| %>
+  <div class="control-group">
+    <%= f.label "版本号", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :release_version, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label "发布说明", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :release_note, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label "版本附件", :class => 'control-label' %>
+    <div class="controls">
+      <%= file_field_tag :attachment %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :statble, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :statble, :class => 'check_box' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                products_path, :class => 'btn' %>
+  </div>
+<% end %>

@@ -16,7 +16,7 @@
     <% @videos.each do |video| %>
       <tr>
         <td><%= link_to(image_tag(video.photo_attachment.media.thumb), video_path(video)) if video.photo_attachment %></td>
-        <td><%= File.basename(video.video_attachment.media_url) if video.video_attachment %></td>
+        <td><%= video.video_attachment.file_name if video.video_attachment %></td>
         <td><%= video.title %></td>
         <td><%=l video.created_at %></td>
         <td>

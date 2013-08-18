@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  version: MyString
+  release_note: MyString
+  release_date: 2013-08-17
+  attachment: MyString
+  statble: false
+  download_count: 1
+
+two:
+  version: MyString
+  release_note: MyString
+  release_date: 2013-08-17
+  attachment: MyString
+  statble: false
+  download_count: 1
