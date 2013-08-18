@@ -48,7 +48,7 @@
 
   <!-- START THE FEATURETTES -->
   <div class="featurette">
-    <img class="featurette-image pull-right" src=<%= @videos[0].photo_attachment.media.preview %>>
+    <img class="featurette-image pull-right" src=<%= @videos[0].photo_attachment.media.preview if @videos[0] %>>
     <h2 class="featurette-heading">First featurette headling. <span class="muted">It'll blow your mind.</span></h2>
     <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
   </div>
