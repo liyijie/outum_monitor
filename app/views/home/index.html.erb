@@ -9,9 +9,9 @@
         <div class="carousel-caption">
           <h1><%= photo.title %></h1>
           <p class="lead"><%= raw photo.note %></p>
-          <%= link_to content_tag(:li, "", :class=>'icon-download') + " 立即下载", download_product_path(@product), class: "btn btn-large btn-primary" %>
-          <p>运行环境：Windows XP或更高版本(32位)</p>
           <% if @product %>
+            <%= link_to content_tag(:li, "", :class=>'icon-download') + " 立即下载", download_product_path(@product), class: "btn btn-large btn-primary" %>
+            <p>运行环境：Windows XP或更高版本(32位)</p>
             <p>版本：<%= @product.release_version %></p>
             <p>发布日期：<%= @product.release_date %></p>
           <% end %>
