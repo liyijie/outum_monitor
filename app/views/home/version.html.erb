@@ -1,0 +1,18 @@
+
+<div class="container">
+  <ul class="breadcrumb">
+  <li><a href="/"><span class="label label-success">主页</span></a><span class="divider">/</span></li>
+  <li class="active"><span class="label label-default">升级日志</span></li>
+</ul>
+  <h2>Outum V8升级日志</h2>
+  <% @products.each_with_index do |product, index| %>
+    <hr>
+    <h4>版本号：<span><%= product.release_version %></span></h4>
+    <p>发布日期：<span><%= product.release_date %></span></p>
+    <% if index == 0 %>
+    <%= link_to content_tag(:li, "", :class=>'icon-download') + " 立即下载", download_product_path(product), class: "btn btn-small btn-primary" %>
+    <p></p>      
+    <% end %>
+    <p><%= raw product.release_note %></p>
+  <% end %>
+</div>

@@ -1,4 +1,6 @@
 OutumMonitor::Application.routes.draw do
+  get "home/version"
+
   resources :products do
     member do
       match 'download'

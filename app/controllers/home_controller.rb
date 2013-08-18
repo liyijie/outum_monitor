@@ -6,4 +6,8 @@ class HomeController < ApplicationController
     @product = Product.first
     @row_count = @videos.size / 3 + (@videos.size % 3 > 0 ? 1 : 0)
   end
+
+  def version
+    @products = Product.all
+  end
 end

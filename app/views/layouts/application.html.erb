@@ -23,6 +23,7 @@
           <li><%= link_to "客户端统计", clients_path %></li>
           <li><%= link_to "地理化显示", "/monitor/all" %></li>
           <li><%= link_to "在线监控", "/monitor/online" %></li>
+          <li><%= link_to "升级日志", "/home/version" %></li>
         </ul>
         <ul class="nav pull-right">
           <% if user_signed_in? %>
@@ -44,7 +45,7 @@
     </div>
   </div>
 
-  <%= bootstrap_flash %>
+  <%= my_bootstrap_flash %>
   <%= yield %>
 
   <hr>
