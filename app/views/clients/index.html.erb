@@ -22,7 +22,7 @@
         <td><%= link_to client.label, client_path(client), :class => "badge badge-info" %></td>
         <!-- <td><%= link_to client.label, "##{client.label}", :class => "badge badge-info", :data => {:toggle=>"modal"}  %></td> -->
         <td><%= client.recent_city.to_s %></td>
-        <td><%= "#{client.last_time}(#{time_ago_in_words client.last_time} ago)" %></td>
+        <td><%= "#{client.last_time}(#{time_ago_in_words(client.last_time)}前)" %></td>
         <td><%= client.online_days %>天</td>
         <td><%= (client.distance_today / 1000).round(2) %></td>
         <td><%= (client.duration_today / 60).round(2) %></td>
