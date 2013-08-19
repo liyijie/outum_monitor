@@ -47,26 +47,50 @@
   <% end %>
 
   <!-- START THE FEATURETTES -->
-  <div class="featurette">
-    <img class="featurette-image pull-right" src=<%= @videos[0].photo_attachment.media.preview if @videos[0] %>>
-    <h2 class="featurette-heading">First featurette headling. <span class="muted">It'll blow your mind.</span></h2>
-    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+  <div class="featurette row-fluid">
+    <div class="span6">
+      <h2 class="featurette-heading">大唐L1测试手机 <span class="muted">高通芯片解决方案</span></h2>
+      <p class="lead">业务唯一高通芯片系统化路测解决方案，业内首款LTE专业路测手机，实现了商用终端和测试终端的同机一体，更真实反馈用户感知。<br>支持GSM/WCDMA（联通）/TD-SCDMA(移动3G)/TDD-LTE/FDD-LTE目前的所有网络制式。<br>专业厂家定制测试手机，采用Android系统，具备强制测试所需的所有功能（ 如强制锁频、强制锁小区、强制切换等）和深度定制能力</p>
+    </div>
+    <div class="span6">
+      <%= image_tag("L1.jpg", class: "featurette-image pull-right") %>
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+  <div class="featurette row-fluid">
+    <div class="span6">
+      <%= image_tag("snapdragon.jpg", class: "featurette-image pull-left") %>
+    </div>
+    <div class="span6">
+      <h2 class="featurette-heading">高通骁龙处理器 <span class="muted">70%芯片份额</span></h2>
+      <p class="lead">骁龙S4 Plus MSM8930，该芯片的主要特色是同时支持UMTS、CDMA和TD-SCDMA制式，从而使得完美兼容三网。<br>中国联通、中国电信与中国移动都可以完美共存使用。而且值得一提的是，该单一平台处理器同时支持LTE-TDD和TD-SCDMA，主要面向在中国使用的中端智能手机。</p>
+    </div>
   </div>
 
   <hr class="featurette-divider">
 
-  <div class="featurette">
-    <img class="featurette-image pull-left" src="">
-    <h2 class="featurette-heading">Oh yeah, it's that good. <span class="muted">See for yourself.</span></h2>
-    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+  <div class="featurette row-fluid">
+    <div class="span6">
+      <h2 class="featurette-heading">SPAN Outum V8 <span class="muted">实时路测</span></h2>
+      <p class="lead">稳定性⾼:软件版本稳定性⾼,操作简便。<br>测试计划:支持灵活定制脚本序列。<br>支持对于测试数据的实时统计。<br>提供强⼤大的数据展现:数据显⽰示界⾯面可定制。</p>
+    </div>
+    <div class="span6">
+      <%= image_tag("outum_main.png", class: "featurette-image pull-right") %>
+    </div>
   </div>
 
   <hr class="featurette-divider">
 
-  <div class="featurette">
-    <img class="featurette-image pull-right" src="">
-    <h2 class="featurette-heading">And lastly, this one. <span class="muted">Checkmate.</span></h2>
-    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+  <div class="featurette row-fluid">
+    <div class="span6">
+      <%= image_tag("outum_map.png", class: "featurette-image pull-left") %>
+    </div>
+    <div class="span6">
+      <h2 class="featurette-heading">SPAN Outum V8 <span class="muted">后台分析</span></h2>
+      <p class="lead">提供灵活的数据统计⽅方式和报表⽣生成功能
+。<br>提供灵活的通⽤用分析⼿手段和专业化的专题分析</p>
+    </div>
   </div>
 
   <hr class="featurette-divider">

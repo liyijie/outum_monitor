@@ -96,9 +96,11 @@ body {
 /* Give some space on the sides of the floated elements so text doesn't run right into it. */
 .featurette-image.pull-left {
   margin-right: 40px;
+  // width: 500px;
 }
 .featurette-image.pull-right {
   margin-left: 40px;
+  // width: 500px;
 }
 
 /* Thin out the marketing headings */
