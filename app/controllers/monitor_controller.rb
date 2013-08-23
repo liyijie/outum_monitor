@@ -1,4 +1,7 @@
 class MonitorController < ApplicationController
+
+  before_filter :authenticate_user!
+
   def all
     @clients = Client.all
     @controller = controller_name

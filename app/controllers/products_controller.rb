@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 
   before_filter :authenticate_user!, only: [:index, :edit, :new]
+  
   # GET /products/1/download
   def download
     @product = Product.find(params[:id])

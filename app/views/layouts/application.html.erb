@@ -20,9 +20,11 @@
         <%= link_to image_tag("dt_logo.png"),  "http://www.datangmobile.cn", target: "_blank", class: "brand", id: "logo"  %>
         <%= link_to "Outum V8", root_path, class: "brand" %>
         <ul class="nav">
-          <li><%= link_to "客户端统计", clients_path %></li>
-          <li><%= link_to "地理化显示", "/monitor/all" %></li>
-          <li><%= link_to "在线监控", "/monitor/online" %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to "客户端统计", clients_path %></li>
+            <li><%= link_to "地理化显示", "/monitor/all" %></li>
+            <li><%= link_to "在线监控", "/monitor/online" %></li>
+          <% end %>
           <li><%= link_to "升级日志", "/home/version" %></li>
         </ul>
         <ul class="nav pull-right">
@@ -34,10 +36,7 @@
           <% else %>
             <li>
             <%= link_to('用户登录', new_user_session_path)  %>  
-            </li>
-            <li>
-            <%= link_to('用户注册', new_user_registration_path)  %>  
-            </li>          
+            </li>        
           <% end %>
 
         </ul>
