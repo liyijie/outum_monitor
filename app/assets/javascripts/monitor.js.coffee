@@ -19,8 +19,8 @@ $ ->
         for client in clients
           continue if client.lon == undefined || client.lat == undefined
 
-          # point = new BMap.Point(parseFloat(client.lon), parseFloat(client.lat))
-          point = new BMap.Point(Math.random() * 40 + 85, Math.random() * 30 + 21);
+          point = new BMap.Point(parseFloat(client.lon), parseFloat(client.lat))
+          # point = new BMap.Point(Math.random() * 40 + 85, Math.random() * 30 + 21);
           marker = new BMap.Marker(point)
           markers.push(marker)
           label = "#{client.label}\n今日距离#{client.distance}"
