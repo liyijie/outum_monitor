@@ -14,7 +14,7 @@ class Client < ActiveRecord::Base
   end
 
   def recent_record
-    records = self.records.last
+    records = self.records.first
   end
 
   def online_days
