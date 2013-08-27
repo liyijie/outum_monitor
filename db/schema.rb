@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130817070231) do
+ActiveRecord::Schema.define(:version => 20130827064041) do
 
   create_table "attachments", :force => true do |t|
     t.string   "media"
@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(:version => 20130817070231) do
     t.string   "client_id"
     t.string   "ue"
     t.string   "imei"
-    t.float    "lat"
-    t.float    "lon"
+    t.decimal  "lat"
+    t.decimal  "lon"
     t.float    "distance"
     t.date     "date"
     t.datetime "last_time"
