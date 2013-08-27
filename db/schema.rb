@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(:version => 20130827070603) do
     t.string   "client_id"
     t.string   "ue"
     t.string   "imei"
-    t.decimal  "lat",        :precision => 10, :scale => 10
-    t.decimal  "lon",        :precision => 10, :scale => 10
+    t.decimal  "lat",        :precision => 15, :scale => 10
+    t.decimal  "lon",        :precision => 15, :scale => 10
     t.float    "distance"
     t.date     "date"
     t.datetime "last_time"

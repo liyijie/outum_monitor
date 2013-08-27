@@ -1,7 +1,7 @@
 class ChangeLatAndLonDecimalInRecords < ActiveRecord::Migration
   def up
-    change_column :records, :lat, :decimal, precision: 10, scale: 10
-    change_column :records, :lon, :decimal, precision: 10, scale: 10
+    change_column :records, :lat, :decimal, precision: 15, scale: 10
+    change_column :records, :lon, :decimal, precision: 15, scale: 10
   end
 
   def down
