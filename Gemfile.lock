@@ -97,6 +97,7 @@ GEM
     multi_json (1.7.9)
     multi_xml (0.5.5)
     mysql2 (0.3.13)
+    newrelic_rpm (3.6.6.147)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     orm_adapter (0.4.0)
@@ -183,6 +184,7 @@ DEPENDENCIES
   mime-types
   multi_json (~> 1.7.2)
   mysql2
+  newrelic_rpm
   rails (= 3.2.13)
   rmagick
   sass-rails (~> 3.2.3)
