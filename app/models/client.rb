@@ -52,13 +52,13 @@ class Client < ActiveRecord::Base
   def lat
     # lat = recent_record ? recent_record.lat : nil
     record = self.records.where("lat <> ''").first
-    record.city if record
+    record.lat if record
   end
 
   def lon
     # lon = recent_record ? recent_record.lon : nil
     record = self.records.where("lon <> ''").first
-    record.city if record
+    record.lon if record
   end
 
   def as_json(options)
