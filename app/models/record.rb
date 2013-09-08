@@ -7,7 +7,9 @@ class Record < ActiveRecord::Base
   def update_info lat, lon, time
     self.distance ||= 0
     self.duration ||= 0
-    if lat && lon
+    lat = lat.to_f
+    lon = lon.to_f
+    if lon > 73 && lon < 136 && lat > 4 && lat < 54
       lng1 = self.lon.to_f
       lat1 = self.lat.to_f
       lng2 = lon.to_f
