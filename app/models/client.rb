@@ -22,7 +22,9 @@ class Client < ActiveRecord::Base
   end
 
   def recent_city
-    self.recent_record.city if self.recent_record
+    # self.recent_record.city if self.recent_record
+    record = self.records.where("city <> ''").first
+    record.city if record
   end
 
   def record_today
