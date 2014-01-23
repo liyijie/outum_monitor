@@ -1,5 +1,7 @@
 OutumMonitor::Application.routes.draw do
   get "home/version"
+  get "home/index"
+  get "home/patch"
 
   resources :products do
     member do
@@ -9,10 +11,7 @@ OutumMonitor::Application.routes.draw do
     end
   end
 
-
   devise_for :users
-
-  get "home/index"
 
   resources :videos do
     member do

@@ -5,4 +5,12 @@ class Product < ActiveRecord::Base
 
   acts_as_list
   default_scope order('position desc')
+
+  def self.stables
+    where(statble: false)
+  end
+
+  def self.patches
+    where(statble: true)
+  end
 end
