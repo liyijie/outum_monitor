@@ -25,6 +25,7 @@ module Outum
         end
 
         client.last_time = time
+        client.soft_version = params[:soft_version] if params[:soft_version]
         client.save
 
         # 客户端的信息保护以下内容：

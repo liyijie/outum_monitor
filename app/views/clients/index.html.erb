@@ -9,6 +9,7 @@
     <tr>
       <th>序列号</th>
       <th>所在城市</th>
+      <th>软件版本号</th>
       <th>最后上线时间</th>
       <th>在线天数</th>
       <th>今日里程（km）</th>
@@ -24,6 +25,7 @@
       <td><%= link_to client.label, client_path(client), :class => "badge badge-info" %></td>
       <!-- <td><%= link_to client.label, "##{client.label}", :class => "badge badge-info", :data => {:toggle=>"modal"}  %></td> -->
       <td><%= client.recent_city.to_s %></td>
+      <td><%= client.soft_version.to_s %></td>
       <td><%= "#{client.last_time}(#{time_ago_in_words(client.last_time)}前)" %></td>
       <td><%= client.online_days %>天</td>
       <td><%= (client.distance_today / 1000).round(2) %></td>

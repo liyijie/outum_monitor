@@ -23,6 +23,8 @@
   <dd><%= (@client.distance_all / 1000).round(2) %></dd>
   <dt><strong>总在线时长（分）</strong></dt>
   <dd><%= (@client.duration_all / 60).round(2) %></dd>
+  <dt><strong>软件版本号</strong></dt>
+  <dd><%= @client.soft_version.to_s %></dd>
 </dl>
 
 <% if @client.records.length > 0 %>

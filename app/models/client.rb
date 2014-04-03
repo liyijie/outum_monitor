@@ -1,5 +1,5 @@
 class Client < ActiveRecord::Base
-  attr_accessible :label, :last_time
+  attr_accessible :label, :last_time, :soft_version
 
   has_many :records, dependent: :destroy
   default_scope order: 'last_time DESC'

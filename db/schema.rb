@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130827070603) do
+ActiveRecord::Schema.define(:version => 20140403065111) do
 
   create_table "attachments", :force => true do |t|
     t.string   "media"
@@ -28,8 +28,9 @@ ActiveRecord::Schema.define(:version => 20130827070603) do
   create_table "clients", :force => true do |t|
     t.string   "label"
     t.datetime "last_time"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "soft_version"
   end
 
   create_table "photos", :force => true do |t|
